@@ -37,6 +37,8 @@
     max-width:1080px; margin:0 auto; padding:4.5rem 6vw 2.5rem;
     text-align:left;
   }
+  .module + .module{ border-top:1px solid var(--line); }
+  .module + .module header{ padding-top:3.4rem; }
   .kicker{
     font-size:0.72rem; text-transform:uppercase; letter-spacing:0.24em;
     color:var(--accent); font-weight:600; display:flex; align-items:center; gap:0.6em;
@@ -147,22 +149,11 @@
 </head>
 <body>
 
-<header>
-  <span class="kicker">Information Technology Managemnet</span>
-  <h1>Module 1 : IT Management and Governance</h1>
-  <p>Tap a topic to hear it narrated, in English, right in your browser. No player controls, no reading required — just tap and listen.</p>
-  <div class="wave" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
-</header>
-
-<div class="status-strip" id="statusStrip"><span class="dot"></span><span id="statusText">Tap any topic to begin</span></div>
+<div id="modulesRoot"></div>
 
 <div class="unsupported" id="unsupportedWrap" style="display:none;">
   <div class="box">Your browser doesn't support built-in speech narration, so audio playback isn't available here. Try Chrome or Edge, on desktop or Android.</div>
 </div>
-
-<div class="grid" id="grid"></div>
 
 <footer>
   <div class="inner">
@@ -171,7 +162,12 @@
 </footer>
 
 <script>
-const SERIES = [
+const MODULES = [
+  {
+    kicker:'Information Technology Managemnet',
+    heading:'Module 1 : IT Management and Governance',
+    intro:'Tap a topic to hear it narrated, in English, right in your browser. No player controls, no reading required — just tap and listen.',
+    topics: [
   {
     num:'01', title:'Introduction to IT Management & Governance', duration:'2:40',
     blurb:'The core difference between managing IT and governing it — and why boards care.',
@@ -237,40 +233,133 @@ const SERIES = [
       "Governance isn't a document on a shelf. It's the reason some organizations absorb a crisis, and others don't."
     ]
   }
+    ]
+  },
+  {
+    kicker:'Information Technology Managemnet',
+    heading:'Module 2 : IT Infrastructure and Emerging Technologies',
+    intro:'Tap a topic to hear it narrated, in English, right in your browser. No player controls, no reading required — just tap and listen.',
+    topics: [
+  {
+    num:'01', title:'Overview of IT Infrastructure (Hardware, Software, Networks)', duration:'2:30',
+    blurb:'The three layers that make up IT infrastructure, and how they work together.',
+    beats:[
+      "Strip away the buzzwords, and every piece of IT in an organization falls into one of three layers: hardware, software, and networks. Understanding how these three fit together is the foundation for everything else in this module.",
+      "Hardware is the physical layer: servers, storage devices, end-user computers, and the data centres that house them. It's the part you can touch, and it's usually the biggest fixed cost in an IT budget.",
+      "Software sits on top of hardware and tells it what to do: operating systems, business applications, databases, and middleware that connects everything else. Where hardware is fixed, software is where most day-to-day change happens.",
+      "Networks are the connective tissue: the routers, switches, and cabling, along with wireless and wide-area links, that let hardware and software talk to each other and to the outside world. A weak network layer quietly limits everything built on top of it.",
+      "None of these three layers works in isolation. Infrastructure planning means designing all three together, so that a decision made in one layer doesn't create a bottleneck in another."
+    ]
+  },
+  {
+    num:'02', title:'Cloud Computing, Virtualization, and Edge Computing', duration:'2:50',
+    blurb:'Three different answers to the same question: where should computing actually happen?',
+    beats:[
+      "For decades, the answer to 'where does computing happen' was simple: in your own data centre, on your own hardware. That answer has split into three very different models, and this episode is about telling them apart.",
+      "Virtualization came first. It lets one physical machine behave like many separate ones, each with its own operating system, running independently on shared hardware. It's the technology that made modern data centres dramatically more efficient, since a single server no longer sits idle running one application.",
+      "Cloud computing takes virtualization and turns it into a service. Instead of owning the physical machines, an organization rents computing power, storage, and software from a provider, paying for what it uses and scaling up or down on demand. This is why cloud shifted IT spending from a large upfront capital cost to an ongoing operating expense.",
+      "Edge computing pushes processing in the opposite direction, away from centralized data centres and closer to where data is actually generated, like a factory sensor or a retail store. For applications where even a small delay matters, edge computing processes data locally instead of making a round trip to the cloud.",
+      "Most modern infrastructure blends all three. Virtualization inside the data centre, cloud for elastic scale, and edge for anything that can't afford to wait."
+    ]
+  },
+  {
+    num:'03', title:'Cybersecurity Fundamentals and Risk Mitigation', duration:'2:55',
+    blurb:'The core principles that every security control ultimately serves, and how mitigation actually works.',
+    beats:[
+      "Every security control an organization puts in place, whether it's a firewall, encryption, or a password policy, is ultimately serving three goals: confidentiality, integrity, and availability. This episode is about how those three principles translate into practice.",
+      "Confidentiality means only authorized people can see the data. It's protected through access controls, encryption, and the simple discipline of not granting more access than a role actually needs.",
+      "Integrity means the data hasn't been altered in ways it shouldn't have been, whether by an attacker or by accident. Checksums, audit logs, and change controls exist to catch exactly that.",
+      "Availability means systems and data are there when legitimate users need them. This is the principle attacked by things like denial-of-service attacks and ransomware, which is why backups and redundancy are treated as security controls, not just IT hygiene.",
+      "Risk mitigation is the discipline of deciding, for each threat, whether to reduce it with a control, transfer it through insurance, accept it as a known cost, or avoid it by not doing the risky activity at all. Good cybersecurity isn't about eliminating every risk. It's about making that choice deliberately, for every risk that matters."
+    ]
+  },
+  {
+    num:'04', title:'Emerging Technologies: AI, IoT, Blockchain, Big Data', duration:'2:55',
+    blurb:'Four technologies reshaping infrastructure, and the one thing they all have in common.',
+    beats:[
+      "Four technologies keep coming up in every infrastructure conversation right now: artificial intelligence, the Internet of Things, blockchain, and big data. They look unrelated, but they share one thing in common, and we'll get to that at the end.",
+      "Artificial intelligence and machine learning let systems find patterns and make predictions from data, rather than following rules a person wrote by hand. For infrastructure teams, this means new demands: specialized processing power, and pipelines that keep large volumes of training data flowing reliably.",
+      "The Internet of Things connects everyday physical devices, sensors, machines, vehicles, to a network, so they can report data and sometimes act on it automatically. Every connected device is also a new potential entry point, which is why IoT expands the security perimeter faster than most other technologies.",
+      "Blockchain is a distributed ledger, a record of transactions replicated across many participants instead of stored in one central database, making that record very hard to alter after the fact. Beyond cryptocurrency, it's being explored for supply chain tracking and identity verification, wherever proving something wasn't tampered with matters.",
+      "Big data refers to volumes of information too large and too fast-moving for traditional tools to handle, requiring purpose-built platforms to store, process, and extract value from it. And here's what ties all four together: every one of them multiplies the amount of data an organization has to store, move, and protect, which is exactly why they all land back on the same infrastructure and governance conversations we've been having through this course."
+    ]
+  },
+  {
+    num:'05', title:'IT Infrastructure Management and Optimization', duration:'2:35',
+    blurb:'Why infrastructure needs active management long after it is installed, not just at setup.',
+    beats:[
+      "Infrastructure isn't a one-time purchase. It's a living system that needs active management long after installation, and this final episode is about what that management actually involves.",
+      "It starts with monitoring: tracking the health, capacity, and performance of servers, networks, and applications continuously, so problems get caught before users notice them. You can't manage what you aren't measuring.",
+      "Capacity planning follows from that. Using performance data to forecast future demand, so infrastructure gets scaled up before it becomes a bottleneck, and scaled down when it's sitting idle and wasting cost.",
+      "Optimization is the ongoing work of improving efficiency: consolidating underused servers, automating repetitive maintenance tasks, and retiring legacy systems that cost more to keep running than they're worth. This is where a lot of an infrastructure budget quietly leaks away if nobody's paying attention.",
+      "Done well, infrastructure management turns a large fixed cost into a flexible, efficient foundation, one that can absorb new demands like cloud, AI, or IoT without needing to be rebuilt from scratch every time something new arrives."
+    ]
+  }
+    ]
+  }
 ];
 
-const grid = document.getElementById('grid');
-const statusStrip = document.getElementById('statusStrip');
-const statusText = document.getElementById('statusText');
+const modulesRoot = document.getElementById('modulesRoot');
+let tileRegistry = [];
 
-SERIES.forEach((ep, idx) => {
-  const tile = document.createElement('button');
-  tile.className = 'tile';
-  tile.dataset.idx = idx;
-  tile.setAttribute('aria-pressed', 'false');
-  tile.innerHTML = `
-    <div class="tile-top">
-      <span class="num">${ep.num}</span>
-      <span class="dur">${ep.duration}</span>
-    </div>
-    <h2>${ep.title}</h2>
-    <p class="blurb">${ep.blurb}</p>
-    <div class="tile-bottom">
-      <div class="playbtn">
-        <svg class="icon-play" viewBox="0 0 24 24" fill="none"><path d="M6 4.5v15l13-7.5-13-7.5Z" fill="#181129"/></svg>
-        <svg class="icon-pause" viewBox="0 0 24 24" fill="none" style="display:none;"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="#181129"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="#181129"/></svg>
-      </div>
-      <div class="mini-wave"><span></span><span></span><span></span><span></span></div>
+MODULES.forEach((mod, mIdx) => {
+  const section = document.createElement('section');
+  section.className = 'module';
+
+  const header = document.createElement('header');
+  header.innerHTML = `
+    <span class="kicker">${mod.kicker}</span>
+    <h1>${mod.heading}</h1>
+    <p>${mod.intro}</p>
+    <div class="wave" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
   `;
-  grid.appendChild(tile);
+  section.appendChild(header);
+
+  const statusStrip = document.createElement('div');
+  statusStrip.className = 'status-strip';
+  statusStrip.id = `statusStrip-${mIdx}`;
+  statusStrip.innerHTML = `<span class="dot"></span><span id="statusText-${mIdx}">Tap any topic to begin</span>`;
+  section.appendChild(statusStrip);
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+  grid.id = `grid-${mIdx}`;
+  section.appendChild(grid);
+
+  mod.topics.forEach((ep, tIdx) => {
+    const tile = document.createElement('button');
+    tile.className = 'tile';
+    tile.dataset.mod = mIdx;
+    tile.dataset.idx = tIdx;
+    tile.setAttribute('aria-pressed', 'false');
+    tile.innerHTML = `
+      <div class="tile-top">
+        <span class="num">${ep.num}</span>
+        <span class="dur">${ep.duration}</span>
+      </div>
+      <h2>${ep.title}</h2>
+      <p class="blurb">${ep.blurb}</p>
+      <div class="tile-bottom">
+        <div class="playbtn">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="none"><path d="M6 4.5v15l13-7.5-13-7.5Z" fill="#181129"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="none" style="display:none;"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="#181129"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="#181129"/></svg>
+        </div>
+        <div class="mini-wave"><span></span><span></span><span></span><span></span></div>
+      </div>
+    `;
+    grid.appendChild(tile);
+  });
+
+  modulesRoot.appendChild(section);
+  tileRegistry.push({ grid, statusStrip, statusTextEl: statusStrip.querySelector(`#statusText-${mIdx}`) });
 });
 
 const synthOk = 'speechSynthesis' in window;
 if(!synthOk){
   document.getElementById('unsupportedWrap').style.display = 'block';
-  document.getElementById('grid').style.display = 'none';
-  statusText.textContent = 'Narration unavailable in this browser';
+  tileRegistry.forEach(r => { r.grid.style.display = 'none'; r.statusTextEl.textContent = 'Narration unavailable in this browser'; });
 } else {
   let indianVoice = null;
   function pickIndianVoice(){
@@ -287,6 +376,7 @@ if(!synthOk){
   if(speechSynthesis.onvoiceschanged !== undefined){ speechSynthesis.onvoiceschanged = refreshVoice; }
 
   let activeTile = null;
+  let activeModIdx = null;
   let queue = [];
   let queuePos = -1;
   let playing = false;
@@ -310,13 +400,21 @@ if(!synthOk){
     }
   }
 
+  function setStatus(mIdx, live, text){
+    tileRegistry.forEach((r, i) => {
+      r.statusStrip.classList.toggle('live', i === mIdx && live);
+      if(i === mIdx) r.statusTextEl.textContent = text;
+      else if(!(i === activeModIdx && live)) r.statusTextEl.textContent = 'Tap any topic to begin';
+    });
+  }
+
   function stopAll(){
     playing = false;
     speechSynthesis.cancel();
     resetTile(activeTile);
     activeTile = null;
-    statusStrip.classList.remove('live');
-    statusText.textContent = 'Tap any topic to begin';
+    tileRegistry.forEach(r => { r.statusStrip.classList.remove('live'); r.statusTextEl.textContent = 'Tap any topic to begin'; });
+    activeModIdx = null;
   }
 
   function speakNext(ep){
@@ -331,28 +429,31 @@ if(!synthOk){
     speechSynthesis.speak(utter);
   }
 
-  function playEpisode(idx, tile){
+  function playEpisode(mIdx, tIdx, tile){
     refreshVoice();
     speechSynthesis.cancel();
-    const ep = SERIES[idx];
+    const ep = MODULES[mIdx].topics[tIdx];
     queue = ep.beats.slice();
     queuePos = -1;
     playing = true;
+    activeModIdx = mIdx;
     setActiveTile(tile);
-    statusStrip.classList.add('live');
-    statusText.textContent = `Now narrating: ${ep.title}`;
+    setStatus(mIdx, true, `Now narrating: ${ep.title}`);
     speakNext(ep);
   }
 
-  grid.addEventListener('click', (e) => {
-    const tile = e.target.closest('.tile');
-    if(!tile) return;
-    const idx = parseInt(tile.dataset.idx, 10);
-    if(activeTile === tile && playing){
-      stopAll();
-    } else {
-      playEpisode(idx, tile);
-    }
+  tileRegistry.forEach(r => {
+    r.grid.addEventListener('click', (e) => {
+      const tile = e.target.closest('.tile');
+      if(!tile) return;
+      const mIdx = parseInt(tile.dataset.mod, 10);
+      const tIdx = parseInt(tile.dataset.idx, 10);
+      if(activeTile === tile && playing){
+        stopAll();
+      } else {
+        playEpisode(mIdx, tIdx, tile);
+      }
+    });
   });
 }
 </script>
