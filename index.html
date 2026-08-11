@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gokulnath G — Assistant Professor, Saintgits College of Engineering</title>
+<meta name="description" content="Faculty profile of Er. Gokulnath G, Assistant Professor (Senior), Department of Computer Science and Engineering, Saintgits College of Engineering. Research: Blockchain Technology, Cyber Security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --ink-soft:#141F33;
+    --paper:#F6F5F1;
+    --paper-dim:#EEEDE6;
+    --teal:#1FB8A6;
+    --teal-dim:#12857A;
+    --gold:#C9A227;
+    --slate:#4B5563;
+    --slate-light:#7C8798;
+    --line:#DEDCD2;
+    --line-dark:#26324A;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  ::selection{background:var(--teal);color:var(--ink);}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,245,241,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;}
+  .brand span{color:var(--teal-dim);}
+  .navlinks{display:flex;gap:28px;font-size:13.5px;font-weight:500;}
+  .navlinks a{text-decoration:none;color:var(--slate);position:relative;padding:4px 0;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks{}
+  @media(max-width:720px){.navlinks{display:none;}}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero .wrap{
+    padding:76px 32px 64px;
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:56px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  @media(max-width:760px){
+    header.hero .wrap{grid-template-columns:1fr;padding:56px 20px 44px;gap:32px;}
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:20px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block;box-shadow:0 0 0 3px rgba(31,184,166,0.2);}
+  .hero h1{font-size:clamp(34px,5vw,54px);line-height:1.05;color:#fff;}
+  .hero .role{
+    margin-top:14px;
+    font-size:17px;
+    color:#B9C2D4;
+    font-weight:400;
+    max-width:520px;
+  }
+  .hero .role strong{color:#fff;font-weight:600;}
+  .hero-meta{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    font-size:13px;
+    color:#8FA0BC;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .hero-meta a{text-decoration:none;color:#D7DEEA;border-bottom:1px solid rgba(215,222,234,0.3);}
+  .hero-meta a:hover{color:var(--teal);border-color:var(--teal);}
+  .photo-frame{
+    position:relative;
+    justify-self:end;
+  }
+  @media(max-width:760px){.photo-frame{justify-self:start;}}
+  .photo-frame img{
+    width:230px;height:288px;object-fit:cover;
+    border:1px solid rgba(255,255,255,0.12);
+    filter:grayscale(15%) contrast(1.03);
+    display:block;
+  }
+  .photo-frame::before{
+    content:"";
+    position:absolute;top:14px;left:14px;
+    width:230px;height:288px;
+    border:1px solid var(--teal);
+    z-index:-1;
+  }
+  .hero-btns{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    padding:11px 18px;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,0.25);
+    color:#fff;
+    letter-spacing:0.02em;
+    transition:all .15s ease;
+  }
+  .btn:hover{border-color:var(--teal);color:var(--teal);}
+  .btn.solid{background:var(--teal);color:var(--ink);border-color:var(--teal);font-weight:600;}
+  .btn.solid:hover{background:#26D2BE;color:var(--ink);}
+
+  /* chain rail decorative */
+  .chain-rail{position:absolute;bottom:0;left:0;right:0;height:46px;opacity:.5;z-index:1;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;}
+  .sec-num{font-family:'JetBrains Mono',monospace;color:var(--teal-dim);font-size:13px;}
+  .sec-head h2{font-size:26px;}
+  .sec-sub{color:var(--slate);font-size:14.5px;margin-top:6px;max-width:640px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:32px;}}
+  .about-grid p{color:var(--slate);font-size:15.5px;margin:0 0 16px;}
+  .stat-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .stat-item{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .stat-item .k{color:var(--slate-light);}
+  .stat-item .v{font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right;}
+  .interest-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .interest-tags span{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    padding:6px 12px;border:1px solid var(--line-dark);
+    color:var(--ink);border-color:var(--ink);
+  }
+
+  /* ---------- LEDGER / PUBLICATIONS (signature element) ---------- */
+  .ledger{position:relative;}
+  .ledger::before{
+    content:"";position:absolute;left:29px;top:8px;bottom:8px;width:1px;
+    background:repeating-linear-gradient(to bottom, var(--teal) 0 6px, transparent 6px 12px);
+  }
+  .ledger-group{margin-bottom:8px;}
+  .ledger-group-title{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal-dim);margin:34px 0 14px 0;padding-left:60px;
+  }
+  .ledger-group:first-child .ledger-group-title{margin-top:0;}
+  .block{
+    position:relative;
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:0;
+    padding:16px 0;
+  }
+  .block-id{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#fff;
+    background:var(--ink);
+    width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;
+    z-index:2;
+    position:relative;
+    border:1px solid var(--ink);
+  }
+  .block:hover .block-id{background:var(--teal-dim);}
+  .block-body{padding-left:20px;padding-top:2px;}
+  .block-body p{margin:0;font-size:14.5px;color:var(--ink);}
+  .block-body .hash{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--slate-light);margin-top:6px;display:block;
+  }
+
+  /* ---------- EXPERIENCE / TIMELINE ---------- */
+  .exp-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:760px){.exp-cols{grid-template-columns:1fr;}}
+  .exp-card{background:var(--paper);padding:26px 24px;}
+  .exp-card .big{font-family:'Fraunces',serif;font-size:38px;color:var(--teal-dim);}
+  .exp-card .lab{font-size:13px;color:var(--slate);margin-top:4px;}
+
+  /* ---------- ACHIEVEMENTS / MEMBERSHIP ---------- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media(max-width:760px){.two-col{grid-template-columns:1fr;gap:36px;}}
+  ul.plain{list-style:none;margin:0;padding:0;}
+  ul.plain li{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;color:var(--ink);display:flex;gap:12px;
+  }
+  ul.plain li:last-child{border-bottom:none;}
+  ul.plain li .idx{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:12px;flex:0 0 auto;padding-top:2px;}
+  ul.plain li .sub{display:block;color:var(--slate);font-size:13px;margin-top:2px;}
+
+  /* details/summary for expandable lists */
+  details{border-top:1px solid var(--line);padding:16px 0;}
+  details:last-of-type{border-bottom:1px solid var(--line);}
+  summary{
+    cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    color:var(--teal-dim);display:flex;align-items:center;justify-content:space-between;
+    list-style:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:16px;color:var(--slate-light);}
+  details[open] summary::after{content:"–";}
+  .detail-list{margin:16px 0 0;padding:0;list-style:none;}
+  .detail-list li{
+    font-size:13.5px;color:var(--slate);padding:9px 0 9px 18px;
+    border-left:2px solid var(--line);margin-left:3px;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 32px;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px;}
+  @media(max-width:640px){.contact-grid{grid-template-columns:1fr;}}
+  footer h2{color:#fff;font-size:26px;margin-bottom:14px;}
+  footer p{color:#9AA6BC;font-size:14.5px;max-width:420px;}
+  .contact-list{list-style:none;margin:0;padding:0;}
+  .contact-list li{padding:14px 0;border-bottom:1px solid var(--line-dark);}
+  .contact-list a{
+    text-decoration:none;color:#fff;font-size:15px;display:flex;justify-content:space-between;align-items:center;
+  }
+  .contact-list .k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:4px;}
+  .contact-list a:hover{color:var(--teal);}
+  .foot-bottom{
+    border-top:1px solid var(--line-dark);
+    padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:12px;color:#66738C;font-family:'JetBrains Mono',monospace;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Gokulnath&nbsp;G<span>.</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Dept. of Computer Science &amp; Engineering</div>
+      <h1>Gokulnath G</h1>
+      <p class="role"><strong>Assistant Professor (Senior)</strong> — Saintgits College of Engineering (Autonomous), Kottayam, Kerala. Teaching and researching at the intersection of <strong>Blockchain Technology</strong> and <strong>Cyber Security</strong>.</p>
+      <div class="hero-meta">
+        <span>B.Tech · M.Tech · Ph.D (Pursuing)</span>
+        <span>12+ yrs teaching</span>
+        <a href="https://scholar.google.com/citations?user=S1cCrhAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://www.linkedin.com/in/gokul-g-2a64b940/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="hero-btns">
+        <a class="btn solid" href="#contact">Get in touch</a>
+        <a class="btn" href="#publications">View publications</a>
+        <a class="btn" href="https://saintgits.org/saintgits-college-of-engineering/faculty/er-gokulnath-g/" target="_blank" rel="noopener">Faculty page ↗</a>
+      </div>
+    </div>
+    <div class="photo-frame">
+      <img src="assets/profile.jpg" alt="Portrait of Gokulnath G">
+    </div>
+  </div>
+  <svg class="chain-rail" viewBox="0 0 1080 46" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="23" x2="1080" y2="23" stroke="#1FB8A6" stroke-width="1" stroke-dasharray="2 10"/>
+  </svg>
+</header>
+
+<main>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <div>
+          <h2>About</h2>
+          <p class="sec-sub">Twelve years in the classroom, a specialization in data security, and a research programme built around trust systems.</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>Er. Gokulnath G is an Assistant Professor (Senior) in the Department of Computer Science and Engineering at Saintgits College of Engineering (Autonomous), Kottayam. He holds a B.Tech and M.Tech, and is currently pursuing a Ph.D., with postgraduate specialization in Data Security.</p>
+          <p>Over a twelve-year teaching career — alongside a year of non-teaching experience — his work has centred on Blockchain Technology and Cyber Security, spanning smart-contract verification, food-quality assurance on distributed ledgers, and privacy-preserving surveillance systems. He holds a copyright for the Rubrics Cube Encryption Algorithm and is an IUCEE-certified International Engineering Educator.</p>
+          <p>Beyond the classroom, he has organized and chaired hackathons and technical symposia — including four editions of Tink Her Hack and the Useless Projects 24-Hour Hackathon — and regularly serves as a resource person for AICTE- and institution-sponsored blockchain training programmes across Kerala and Tamil Nadu.</p>
+          <div class="interest-tags">
+            <span>Blockchain Technology</span>
+            <span>Cyber Security</span>
+            <span>Network Security</span>
+            <span>Smart Contracts</span>
+            <span>Data Security</span>
+          </div>
+        </div>
+        <div class="stat-list">
+          <div class="stat-item"><span class="k">Designation</span><span class="v">Asst. Professor (Sr.)</span></div>
+          <div class="stat-item"><span class="k">Education</span><span class="v">B.Tech · M.Tech · Ph.D*</span></div>
+          <div class="stat-item"><span class="k">UG Specialization</span><span class="v">Computer Science &amp; Engg.</span></div>
+          <div class="stat-item"><span class="k">PG Specialization</span><span class="v">Data Security</span></div>
+          <div class="stat-item"><span class="k">Teaching Experience</span><span class="v">12 years</span></div>
+          <div class="stat-item"><span class="k">Non-teaching Experience</span><span class="v">1 year</span></div>
+          <div class="stat-item"><span class="k">Institution</span><span class="v">Saintgits CE, Kottayam</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <div>
+          <h2>Research Interests</h2>
+          <p class="sec-sub">Distributed trust and applied security — from consensus protocols to the humans who rely on them.</p>
+        </div>
+      </div>
+      <div class="exp-cols">
+        <div class="exp-card">
+          <div class="big">01</div>
+          <div class="lab">Blockchain Technology — smart contract verification, supply-chain and food-quality assurance, agricultural traceability, programmable/Ethereum-based systems.</div>
+        </div>
+        <div class="exp-card">
+          <div class="big">02</div>
+          <div class="lab">Cyber Security — encryption algorithm design, privacy-preserving surveillance, ethical hacking, IT infrastructure security.</div>
+        </div>
+        <div class="exp-card">
+          <div class="big">03</div>
+          <div class="lab">Applied AI &amp; IoT — misinformation and click-bait detection with neural networks, IoT-assisted driver safety systems.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <div>
+          <h2>Publications</h2>
+          <p class="sec-sub">Read chronologically, most recent first — presented as a ledger, in keeping with the research theme.</p>
+        </div>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-group">
+          <div class="ledger-group-title">International Journals</div>
+
+          <div class="block">
+            <div class="block-id mono">J01</div>
+            <div class="block-body">
+              <p>Click-Bait News Detection using Deep Neural Network</p>
+              <span class="hash">International Journal of Information Systems and Computer Sciences</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">J02</div>
+            <div class="block-body">
+              <p>A Study on an Efficient and Trustworthy Resource Sharing Platform on Collaborative Cloud Computing</p>
+              <span class="hash">IJARCAIT, Vol. 4, Issue 3 · May–Jun 2016</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">J03</div>
+            <div class="block-body">
+              <p>Surveillance of Wi-Fi Devices with Privacy Preservation and Evading Anonymous Usage</p>
+              <span class="hash">IJARCCE, Vol. 5, Issue 6 · Jun 2016</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ledger-group">
+          <div class="ledger-group-title">International Conferences</div>
+
+          <div class="block">
+            <div class="block-id mono">C01</div>
+            <div class="block-body">
+              <p>A Study on Formal Verification of Smart Contracts in Distributed Ledger Technology</p>
+              <span class="hash">IEEE RASSE — Recent Advances in Systems, Science &amp; Engineering · 2023</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C02</div>
+            <div class="block-body">
+              <p>BLOCK-FQ: A Blockchain-based Food Quality Assurance System</p>
+              <span class="hash">AIP Conference Proceedings · 2022</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C03</div>
+            <div class="block-body">
+              <p>A Survey on Integrating Blockchain Technologies on Various Stages of Crop Farming — Crop Selection to Product Distribution in India</p>
+              <span class="hash">Int'l Conf. on Cyber Security &amp; Ethical Hacking in Blockchain Technology · Oct 2021</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C04</div>
+            <div class="block-body">
+              <p>Drive Assist — IoT and Machine Learning Based Driver Assist for Safer Night Journeys</p>
+              <span class="hash">ICMISC · 2020</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C05</div>
+            <div class="block-body">
+              <p>GVARDIOS</p>
+              <span class="hash">KetCon · 2019</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C06</div>
+            <div class="block-body">
+              <p>Alikah — A Click-Bait and Fake News Detection System</p>
+              <span class="hash">IEEE ICOEI — Trends in Electronics &amp; Informatics · 2019</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-id mono">C07</div>
+            <div class="block-body">
+              <p>Fake News Detection Using Neural Network</p>
+              <span class="hash">ICCIDT — Computational Intelligence &amp; Digital Technologies · 2019</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ledger-group">
+          <div class="ledger-group-title">National Conference</div>
+          <div class="block">
+            <div class="block-id mono">N01</div>
+            <div class="block-body">
+              <p>Poster Presentation — Traffic Surveillance System for Detecting Traffic Violations and Prevention of Road Accidents</p>
+              <span class="hash">IUCEE Conference, Thiagarajar College of Engineering, Madurai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:28px;font-size:13px;color:var(--slate-light);">Full publication record and citation metrics are maintained on <a href="https://scholar.google.com/citations?user=S1cCrhAAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--teal-dim);">Google Scholar ↗</a></p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <div>
+          <h2>Service &amp; Engagement</h2>
+          <p class="sec-sub">Continuous professional development, resource-person roles, and events organized.</p>
+        </div>
+      </div>
+
+      <details open>
+        <summary>As Resource Person (5)</summary>
+        <ul class="detail-list">
+          <li>Conference Session Chair, National Conference on Interdisciplinary Perspective of Emerging Trends in Computing, CCET, Alappuzha — Apr 2024</li>
+          <li>FDP on Blockchain Technology and its Applications — An Implementation Perspective, GCT, Coimbatore — Feb 2023</li>
+          <li>FDP on Ethereum – Programmable Blockchain, TKM College of Engineering, Kollam — Sep 2022</li>
+          <li>AICTE-sponsored STTP on "Blockchain Fundamentals", Dept. of CSE, Saintgits — Aug 2020</li>
+          <li>"Blockchain for Beginners", 3rd Student National Symposium — Industrial Revolution 4.0, University of Technology and Applied Sciences, Muscat — May 2021</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Events Organized (10)</summary>
+        <ul class="detail-list">
+          <li>Tink Her Hack — 2022, 2023 &amp; 2024</li>
+          <li>Useless Projects — 24-Hour Hackathon, 2023</li>
+          <li>5-day FDP on Theory of Computation — May 2017</li>
+          <li>One-day Workshop on Blockchain Technologies — Aug 2019</li>
+          <li>Ascend 2015 &amp; Ascend 2017</li>
+          <li>Merit Day 2016</li>
+          <li>CASE Tools Workshop — Mar 2015</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Workshops &amp; Seminars Attended (29)</summary>
+        <ul class="detail-list">
+          <li>Innovative Teaching Strategies and Tools in the Digital Age — IIC, GGI Ludhiana — Mar 2023</li>
+          <li>FDP on Blockchain Technology and its Applications, GCT Coimbatore — Feb 2023</li>
+          <li>FDP on Ethereum – Programmable Blockchain, TKM College of Engg., Kollam — Sep 2022</li>
+          <li>Coursera: Smart Contracts, State University of New York — Nov 2021–Feb 2022</li>
+          <li>Online FDP on Cyber Security and Forensics, ACM Kottayam Chapter — Sep 2021</li>
+          <li>NPTEL: Blockchain Architecture and Use Cases, IIT Kharagpur — Jul–Oct 2021</li>
+          <li>AICTE STTP: Blockchain &amp; AI — International Practices, KCG College of Technology — Dec 2020</li>
+          <li>AICTE STTP: Blockchain &amp; AI — Industry Approach, KCG College of Technology — Nov 2020</li>
+          <li>STTP on Blockchain Applications, Dept. of CSE, Saintgits — Oct 2020</li>
+          <li>ATAL FDP on Artificial Intelligence, NIT Allahabad — Oct 2020</li>
+          <li>STTP on Writing &amp; Publishing High-Impact Research Publications — Sep 2020</li>
+          <li>AICTE STTP: Blockchain Applications, Saintgits — Oct 2020</li>
+          <li>AICTE STTP: Blockchain Fundamentals, Saintgits — Aug 2020</li>
+          <li>NPTEL: Ethical Hacking — Jul–Oct 2019</li>
+          <li>NPTEL: Blockchain Architecture, Design and Use Cases — Aug–Oct 2018</li>
+          <li>AICTE-sponsored FDP in Blockchain, CUSAT — Oct 2019</li>
+          <li>6-day Train-the-Trainer on Full Stack Development (TCS Kochi) — Jul 2018</li>
+          <li>Geek Speek, Saintgits — Apr 2018</li>
+          <li>FDP on Machine Learning, Saintgits — Jun 2018</li>
+          <li>TTT at NMAM IT (Infosys) on Internet of Things — Dec 2017</li>
+          <li>KTU-sponsored FDP on Transformations in Engineering, Saintgits — Apr 2018</li>
+          <li>FDP at AJCE on Discrete Mathematics — Jun–Jul 2017</li>
+          <li>FDP on Theory of Computation, Saintgits — May 2017</li>
+          <li>TEQIP Phase-II FDP on Advanced Computer Architecture, CE Adoor — Dec 2016</li>
+          <li>ISTE 26th Annual State Convention — Nov 2015</li>
+          <li>Workshop on Cloud Computing, Saintgits — Nov 2015</li>
+          <li>Interactive Programming in Python, Saintgits — Jul 2015</li>
+          <li>Workshop on PL/SQL, Oracle/ICT Academy, Saintgits — May 2015</li>
+          <li>ISTE Seminar: Steps to Research, AJCE — Sep 2014</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="recognition">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <div>
+          <h2>Recognition &amp; Memberships</h2>
+          <p class="sec-sub">Formal credentials, protected work, and professional bodies.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:15px;font-family:'Inter';font-weight:600;margin-bottom:4px;">Achievements</h3>
+          <ul class="plain">
+            <li><span class="idx">01</span><span>Copyright (4977/2019-CO/SW) on the Rubrics Cube Encryption Algorithm<span class="sub">Registered original work in applied cryptography</span></span></li>
+            <li><span class="idx">02</span><span>IUCEE International Engineering Educator Certification<span class="sub">Indo-US Collaboration for Engineering Education</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:15px;font-family:'Inter';font-weight:600;margin-bottom:4px;">Professional Memberships</h3>
+          <ul class="plain">
+            <li><span class="idx">01</span><span>Associate Member, Institution of Engineers (India)<span class="sub">ID: AM1684968</span></span></li>
+            <li><span class="idx">02</span><span>Professional Member, Association for Computing Machinery (ACM) — since 2015<span class="sub">ID: 3760174</span></span></li>
+            <li><span class="idx">03</span><span>Life Member, Indian Society for Technical Education (ISTE) — since 2015<span class="sub">ID: LM 109202</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p>Open to research collaboration, student mentoring, and speaking engagements on blockchain systems and applied cyber security.</p>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <a href="tel:+919496941119">
+            <span><span class="k">Phone</span>+91&nbsp;94969&nbsp;41119</span><span>→</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:gokulnath.g@saintgits.org">
+            <span><span class="k">Institutional Email</span>gokulnath.g@saintgits.org</span><span>→</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:gokulnathg14@gmail.com">
+            <span><span class="k">Personal Email</span>gokulnathg14@gmail.com</span><span>→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/gokul-g-2a64b940/" target="_blank" rel="noopener">
+            <span><span class="k">LinkedIn</span>in/gokul-g-2a64b940</span><span>↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=S1cCrhAAAAAJ&hl=en" target="_blank" rel="noopener">
+            <span><span class="k">Google Scholar</span>View publication record</span><span>↗</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>Dept. of Computer Science &amp; Engineering · Saintgits College of Engineering (Autonomous), Kottayam, Kerala</span>
+      <span>© 2026 Gokulnath G</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
